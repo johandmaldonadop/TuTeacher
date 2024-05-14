@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor_Question</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        header {
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="tutor.html">Home</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="#redes-sociales">Redes Sociales</a>
+        <a href="contacto.html">Información</a>
+    </div>
+    <header>
+        <h1>Módulo del tutor automático</h1>
+    </header>
+    <main>
+        <p>En este módulo, encontrarás una breve explicación de cada concepto seguido de preguntas de opción múltiple.</p>
+        <h3>¿Para qué se utilizan las funciones generatrices en programación?</h3>
+        <p>Selecciona una respuesta:</p>
+        <form id="quiz-form">
+            <input type="radio" id="opcion1" name="respuesta" value="opcion1">
+            <label for="opcion1">Se utilizan para generar secuencias de datos de forma perezosa, evitando cálculos innecesarios.</label>
+            <p></p>
+            <input type="radio" id="opcion2" name="respuesta" value="opcion2">
+            <label for="opcion2">Se utilizan para generar secuencias de datos de forma instantánea.</label>
+            <p></p>
+            <input type="radio" id="opcion3" name="respuesta" value="opcion3">
+            <label for="opcion3">No se utilizan en programación.</label>
+            <p></p>
+            <button type="submit">Enviar respuesta</button>
+        </form>
+        <p>Puntaje acumulado: <span id="puntaje">0</span> puntos</p>
+        <button id="siguiente-btn">Siguiente</button>
+        <button id="regresar-btn">Regresar</button>
+    </main>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() 
+{
+    let puntaje = localStorage.getItem('puntaje') ? parseInt(localStorage.getItem('puntaje')) : 0;
+    const form = document.getElementById('quiz-form');
+    form.addEventListener('submit', function(event) 
+    {
+        event.preventDefault(); // Evita que el formulario se envíe
+        const respuestaSeleccionada = document.querySelector('input[name="respuesta"]:checked');
+        if (respuestaSeleccionada) 
+        {
+            const respuesta = respuestaSeleccionada.value;
+            if (respuesta === 'opcion1') 
+            {
+                puntaje += 20;
+                alert('¡Respuesta correcta! Obtienes 20 puntos.');
+            } else {
+                alert('Respuesta incorrecta. Intenta de nuevo.');
+                const respuestaAnterior = document.querySelector('input[name="respuesta"]:checked');
+                if (respuestaAnterior) {
+                    const respuestaAnteriorValue = respuestaAnterior.value;
+                    if (respuestaAnteriorValue === 'opcion2') {
+                        puntaje -= 5;
+                        alert('Se restan 5 puntos, puedes intentar de nuevo.');
+                    } else {
+                        puntaje -= 5;
+                        alert('Se restan 5 puntos, puedes intentar de nuevo.');
+                    }
+                }
+            }
+            document.getElementById('puntaje').innerText = puntaje;
+            localStorage.setItem('puntaje', puntaje.toString());
+        } else {
+            alert('Por favor selecciona una respuesta.');
+        }
+    });
+
+    const regresarBtn = document.getElementById('regresar-btn');
+    regresarBtn.addEventListener('click', function() 
+    {
+        // Redireccionar a la página anterior (puedes cambiar 'index.html' por la página correcta)
+        window.location.href = 'cuadro_tutor.html?puntaje=' + puntaje;
+    });
+    const siguienteBtn = document.getElementById('siguiente-btn');
+    siguienteBtn.addEventListener('click', function() 
+    {
+        window.location.href = 'pregunta4.html?puntaje=' + puntaje;
+    });
+});
+
+</script>
+</html>

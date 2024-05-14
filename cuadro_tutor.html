@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor_Question</title>
+     <link rel="stylesheet" href="styles.css"> 
+    <style>
+        header {
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+     <div class="navbar">
+        <a href="tutor.html">Home</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="#redes-sociales">Redes Sociales</a>
+        <a href="contacto.html">Información</a>
+    </div>
+    <header>
+        <h1>TuTeacher</h1>
+        <h2>Introduccion a las funciones generatrices</h2>
+    </header>
+    <main>
+        
+
+        <h3>Concepto 1: Función generatriz</h3>
+        <p>Las funciones generatrices son funciones matemáticas que nos permiten representar secuencias de números de forma compacta y eficiente.</p>
+        <h3>Concepto 2: Manipulación de secuencias</h3>
+        <p>Con las funciones generatrices, podemos manipular secuencias infinitas de números como si fueran funciones matemáticas normales.</p>
+        <h3>Concepto 3: Eficiencia en programación</h3>
+        <p>En programación, las funciones generatrices se utilizan para generar secuencias de datos de forma perezosa, evitando el cálculo innecesario de elementos de la secuencia.</p>
+        <h3>Concepto 4: Representación compacta</h3>
+        <p>Las funciones generatrices permiten representar secuencias de números de manera concisa, especificando solo los términos necesarios para definir la secuencia.</p>
+        <h3>Concepto 5: Generación bajo demanda</h3>
+        <p>Con las funciones generatrices, los elementos de una secuencia se calculan solo cuando son necesarios, lo que puede ahorrar tiempo y memoria.</p>
+        <h3>Concepto 6: Manipulación flexible:</h3>
+        <p>Las funciones generatrices permiten manipular secuencias de manera flexible, aplicando operaciones como filtrado, mapeo y concatenación.</p>
+        <h3>Concepto 7: Aplicaciones en matemáticas:</h3>
+        <p>En matemáticas, las funciones generatrices se utilizan para estudiar y resolver problemas relacionados con secuencias y series.</p>
+        <h3>Concepto 8: Convergencia de series:</h3>
+        <p>Las funciones generatrices pueden utilizarse para estudiar la convergencia de series numéricas, proporcionando una herramienta útil en análisis matemático.</p>
+        <h3>Concepto 9: Relación con transformadas:</h3>
+        <p>Las funciones generatrices están relacionadas con las transformadas integrales, como la transformada de Laplace, y se utilizan en diversos campos de la ciencia y la ingeniería.</p>
+        <h3>Concepto 10: Generalización a funciones multivariadas:</h3>
+        <p>Las funciones generatrices pueden generalizarse para representar secuencias de funciones multivariadas, lo que amplía su aplicación a contextos más complejos.</p>
+
+        <h2>Aca encontraras una serie de preguntas, al seleccionar se abrira una nueva pestaña con la pregunta y los puntos de la respuesta se acumularan a tu puntaje final.</h2>
+
+        <h4>Preguntas:</h4>
+        <a href="pregunta1.html">Pregunta 1</a>
+        <p></p>
+        <a href="pregunta2.html">Pregunta 2</a>
+        <p></p>
+        <a href="pregunta3.html">Pregunta 3</a>
+        <p></p>
+        <a href="pregunta4.html">Pregunta 4</a>
+        <p></p>
+        <a href="pregunta5.html">Pregunta 5</a>
+        <p></p>
+        <a href="pregunta6.html">Pregunta 6</a>
+        <p></p>
+        <a href="pregunta7.html">Pregunta 7</a>
+        <p></p>
+        <a href="pregunta8.html">Pregunta 8</a>
+        <p></p>
+        <a href="pregunta9.html">Pregunta 9</a>
+        <p></p>
+        <a href="pregunta10.html">Pregunta 10</a>
+
+
+        <h1>Puntaje final: <span id="puntaje"></span></h1>
+        <button id="regresar-btn">Finalizar</button>
+
+    </main>
+</body>
+
+    
+
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const puntaje = parseInt(urlParams.get('puntaje')) || 0;
+    document.getElementById('puntaje').innerText = puntaje;
+
+    const regresarBtn = document.getElementById('regresar-btn');
+    regresarBtn.addEventListener('click', function() {
+        localStorage.setItem('puntaje', '0'); // Reiniciar puntaje a 0
+        window.location.href = 'tutor.html'; // Redireccionar al "home"
+    });
+});
+
+</script>
+
+
+
+
+</html>
